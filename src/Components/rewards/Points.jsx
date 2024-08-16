@@ -9,16 +9,3 @@ export const Points = (amount) => {
     }
     return point;
 }
-
-export const customerPoints = (transactions) => {
-
-    if (!transactions || transactions.length === 0) {
-        return {}
-    }
-
-    return transactions.reduce((acc, val) => {
-        const month = new Date(val.date).getMonth();
-        acc[month] = (acc[month] || 0) + Points(val.amount);
-        return acc;
-    }, {})
-}
